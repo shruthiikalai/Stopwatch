@@ -38,14 +38,14 @@ function Stopwatch(){
 
     return (
         <div>
-            <p>Time:{formatTime(time)}</p>
+            <p>Time: {formatTime(time)}</p>
             <div>
                 {!isRunning ? (
-                    <button onClick={handleStart} >Start</button>
+                    <button onClick={handleStart}>Start</button>
                 ) : (
-                    <button onClick={handleStop} >Stop</button>
+                    <button onClick={handleStop}>Stop</button>
                 )}
-                    <button onClick={handleReset} >Reset</button>
+                    <button onClick={handleReset}>Reset</button>
             </div>
         </div>
     );
