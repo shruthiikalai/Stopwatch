@@ -6,7 +6,7 @@ function Stopwatch(){
         const [isRunning,setIsRunning] = useState(false);
         const timerRef = useRef(null);
 
-        const timeFormat = (time) => {
+        const formatTime = (time) => {
             const min = Math.floor(time / 60);
             const sec = time % 60;
             return `${min}:${sec < 10 ? "0" : ""}${sec}`;
@@ -22,16 +22,14 @@ function Stopwatch(){
           };
 
           const handleStop = () => {
-            if (isRunning) {
-              setIsRunning(false);
-              clearInterval(timerRef.current);
-            }
+            setIsRunning(false);
+            clearInterval(timerRef.current);
           };
 
           const handleReset = () => {
             clearInterval(timerRef.current);
             setIsRunning(false);
-            setTime(0);
+            setTime(0);  // Reset time to 0
           };
 
           useEffect(() => {
@@ -40,7 +38,7 @@ function Stopwatch(){
 
     return (
         <div>
-            <p>Time : {timeFormat(time)}</p>
+            <p>Time : {formatTime(time)}</p>
             <div>
                 {!isRunning ? (
                     <button onClick={handleStart} >Start</button>
